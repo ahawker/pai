@@ -20,6 +20,61 @@ Install `pai` from source:
     $ python setup.py install
 ```
 
+### Usage
+
+`pai` does not enforce any constraints on the `node`, `relation`, and `property` values.
+
+For this example, lets imagine we're trying to describe a service that deals with:
+
+* Users
+* Workspaces
+* Workspace Settings
+
+Describe a single resource by its relation to a property value. In layman's terms:
+"Resolve to a user with the email address foo@bar.com".
+
+```python
+    import pai
+
+    >>> pai.parse('user:email:foo@bar.com')
+    [<Node(node=user, edge=email, property=foo@bar.com>]
+```
+
+Describe two linked resources by a specific relation. In layman's terms:
+"Resolve to a workspace (linked by workspace-id) to a user with the email address foo@bar.com"
+
+```python
+    import pai
+
+    >>> pai.parse('workspace:workspace-id:user:email:foo@bar.com')
+    [<Node(node=user, edge=email, property=foo@bar.com>,
+     <Node(node=workspace, edge=workspace-id, property=None>]
+```
+
+Describe two linked resources by any relation. In layman's terms:
+"Resolve a workspace (linked by any discoverable relation) to a user with the email address foo@bar.com".
+
+```python
+    import pai
+
+    >>> pai.parse('workspace:any:user:email:foo@bar.com')
+    [<Node(node=user, edge=email, property=foo@bar.com>,
+     <Node(node=workspace, edge=any, property=None>]
+```
+
+Describe N (where N=3 in this example) resources by any relation. In layman's terms:
+"Resolve the settings data (linked by any discoverable relation) to a workspace (linked by any discoverable relation) to a user with the email address foo@bar.com"
+
+```python
+    import pai
+
+    >>> pai.parse('settings:any:workspace:any:user:email:foo@bar.com')
+    [<Node(node=user, edge=email, property=foo@bar.com>,
+     <Node(node=workspace, edge=any, property=None>,
+     <Node(node=settings, edge=any, property=None>]
+```
+
+
 ### License
 
 [Apache 2.0](LICENSE)
