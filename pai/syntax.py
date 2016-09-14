@@ -8,7 +8,7 @@
 __all__ = ['SyntaxError', 'Node', 'root', 'child']
 
 
-GROUP_SIZE = 1
+GROUP_SIZE = 0
 RTL = True
 DELIMITER = ':'
 
