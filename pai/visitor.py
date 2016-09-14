@@ -89,7 +89,7 @@ def visit_node(tokens, n):
     is empty or fully exhausted
     """
     try:
-        return slicer.iter_slice(tokens, n)
+        return reversed(slicer.iter_slice(tokens, n))
     except slicer.SliceIterableEmpty:
         return None
     except slicer.SliceIterableExhausted:
