@@ -1,0 +1,7 @@
+# pai/requirements/tox.txt
+#
+# Requirements for executing the pai test suite using tox.
+
+-r test.txt
+
+tox

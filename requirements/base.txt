@@ -1,0 +1,5 @@
+# pai/requirements/base.txt
+#
+# Requirements for using the pai package.
+
+paip

@@ -1,0 +1,10 @@
+# pai/requirements/test.txt
+#
+# Requirements for executing the pai test suite.
+
+-r base.txt
+
+pytest
+pytest-cov
+pytest-mock
+pytest-pep8
