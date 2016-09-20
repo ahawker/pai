@@ -2,12 +2,12 @@
     test_visitor
     ~~~~~~~~~~~~
 
-    Tests for the :mod:`~pai.visitor` module.
+    Tests for the :mod:`~pai_lang.visitor` module.
 """
 
 import pytest
 
-from pai import syntax, visitor
+from pai_lang import syntax, visitor
 
 
 @pytest.fixture(scope='module', params=[
@@ -64,7 +64,7 @@ def rtl_matching_pairs(request):
 def valid_visit_root_node_params(fake_root_node_input):
     """
     Fixture that yields a tuple of tokens, group_size, and rtl values that can be passed into
-    :func:`~pai.visitor.visit` to create a valid root :class:`~pai.syntax.Node` node.
+    :func:`~pai_lang.visitor.visit` to create a valid root :class:`~pai_lang.syntax.Node` node.
     """
     return fake_root_node_input, syntax.GROUP_SIZE, syntax.RTL
 
@@ -73,7 +73,7 @@ def valid_visit_root_node_params(fake_root_node_input):
 def valid_visit_child_node_params(fake_child_node_input):
     """
     Fixture that yields a tuple of tokens, group_size, and rtl values that can be passed into
-    :func:`~pai.visitor.visit` to create a valid child :class:`~pai.syntax.Node` node.
+    :func:`~pai_lang.visitor.visit` to create a valid child :class:`~pai_lang.syntax.Node` node.
     """
     return fake_child_node_input, syntax.GROUP_SIZE, syntax.RTL
 
@@ -82,8 +82,8 @@ def valid_visit_child_node_params(fake_child_node_input):
 def insufficient_tokens_visit_root_node_params(fake_root_node_input):
     """
     Fixture that yields a tuple of tokens, group_size, and rtl values that can be passed into
-    :func:`~pai.visitor.visit` that does not contain enough tokens to create a valid
-    root :class:`~pai.syntax.Node` node.
+    :func:`~pai_lang.visitor.visit` that does not contain enough tokens to create a valid
+    root :class:`~pai_lang.syntax.Node` node.
     """
     return fake_root_node_input[:-1], syntax.GROUP_SIZE, syntax.RTL
 
@@ -92,8 +92,8 @@ def insufficient_tokens_visit_root_node_params(fake_root_node_input):
 def insufficient_tokens_visit_child_node_params(fake_child_node_input):
     """
     Fixture that yields a tuple of tokens, group_size, and rtl values that can be passed into
-    :func:`~pai.visitor.visit` that does not contain enough tokens to create a valid
-    child :class:`~pai.syntax.Node` node.
+    :func:`~pai_lang.visitor.visit` that does not contain enough tokens to create a valid
+    child :class:`~pai_lang.syntax.Node` node.
     """
     return fake_child_node_input[:-1], syntax.GROUP_SIZE, syntax.RTL
 
@@ -102,14 +102,14 @@ def insufficient_tokens_visit_child_node_params(fake_child_node_input):
 def empty_tokens_visit_params():
     """
     Fixture that yields a tuple of tokens, group_size, and rtl values that can be passed into
-    :func:`~pai.visitor.visit` that does not have any tokens to create a valid :class:`~pai.syntax.Node` node.
+    :func:`~pai_lang.visitor.visit` that does not have any tokens to create a valid :class:`~pai_lang.syntax.Node` node.
     """
     return [], syntax.GROUP_SIZE, syntax.RTL
 
 
 def test_support_returns_false_on_group_size_mismatch(group_size_mismatching_pairs):
     """
-    Assert that :func:`~pai.visitor.supports` returns `False` when given a `group_size` and `expected_group_size`
+    Assert that :func:`~pai_lang.visitor.supports` returns `False` when given a `group_size` and `expected_group_size`
     that are not equal.
     """
     group_size, expected_group_size = group_size_mismatching_pairs
@@ -118,7 +118,7 @@ def test_support_returns_false_on_group_size_mismatch(group_size_mismatching_pai
 
 def test_support_returns_false_on_rtl_mismatch(group_size_matching_pairs, rtl_mismatching_pairs):
     """
-    Assert that :func:`~pai.visitor.supports` returns `False` when given a `rtl` and `expected_rtl`
+    Assert that :func:`~pai_lang.visitor.supports` returns `False` when given a `rtl` and `expected_rtl`
     that are not equal.
     """
     group_size, expected_group_size = group_size_matching_pairs
@@ -128,7 +128,7 @@ def test_support_returns_false_on_rtl_mismatch(group_size_matching_pairs, rtl_mi
 
 def test_support_returns_true_on_group_size_match(group_size_matching_pairs):
     """
-    Assert that :func:`~pai.visitor.supports` returns `True` when given a `group_size` and `expected_group_size`
+    Assert that :func:`~pai_lang.visitor.supports` returns `True` when given a `group_size` and `expected_group_size`
     that are equal.
     """
     group_size, expected_group_size = group_size_matching_pairs
@@ -137,7 +137,7 @@ def test_support_returns_true_on_group_size_match(group_size_matching_pairs):
 
 def test_support_returns_true_on_rtl_match(group_size_matching_pairs, rtl_matching_pairs):
     """
-    Assert that :func:`~pai.visitor.supports` returns `True` when given a `rtl` and `expected_rtl`
+    Assert that :func:`~pai_lang.visitor.supports` returns `True` when given a `rtl` and `expected_rtl`
     that are equal.
     """
     group_size, expected_group_size = group_size_matching_pairs
@@ -147,7 +147,7 @@ def test_support_returns_true_on_rtl_match(group_size_matching_pairs, rtl_matchi
 
 def test_visit_returns_root_node_when_not_given_parent(valid_visit_root_node_params):
     """
-    Assert that :func:`~pai.visitor.visit` returns a root :class:`~pai.syntax.Node` node when given input
+    Assert that :func:`~pai_lang.visitor.visit` returns a root :class:`~pai_lang.syntax.Node` node when given input
     without a parent value.
     """
     root = visitor.visit(*valid_visit_root_node_params, parent=None)
@@ -157,7 +157,7 @@ def test_visit_returns_root_node_when_not_given_parent(valid_visit_root_node_par
 
 def test_visit_returns_child_node_when_given_parent(valid_visit_root_node_params, valid_visit_child_node_params):
     """
-    Assert that :func:`~pai.visitor.visit` returns a child :class:`~pai.syntax.Node` node when given input
+    Assert that :func:`~pai_lang.visitor.visit` returns a child :class:`~pai_lang.syntax.Node` node when given input
     with a parent value to another node.
     """
     root = visitor.visit(*valid_visit_root_node_params, parent=None)
@@ -168,8 +168,8 @@ def test_visit_returns_child_node_when_given_parent(valid_visit_root_node_params
 
 def test_visit_raises_syntax_error_on_missing_tokens_for_root_node(insufficient_tokens_visit_root_node_params):
     """
-    Assert that :func:`~pai.visitor.visit` raises a :class:`~pai.syntax.SyntaxError` when given a token stream that
-    does not have a sufficient number of items to create a root :class:`~pai.syntax.Node` node.
+    Assert that :func:`~pai_lang.visitor.visit` raises a :class:`~pai_lang.syntax.SyntaxError` when given a token stream that
+    does not have a sufficient number of items to create a root :class:`~pai_lang.syntax.Node` node.
     """
     with pytest.raises(syntax.SyntaxError):
         visitor.visit(*insufficient_tokens_visit_root_node_params, parent=None)
@@ -178,8 +178,8 @@ def test_visit_raises_syntax_error_on_missing_tokens_for_root_node(insufficient_
 def test_visit_raises_syntax_error_on_missing_tokens_for_child_node(valid_visit_root_node_params,
                                                                     insufficient_tokens_visit_child_node_params):
     """
-    Assert that :func:`~pai.visitor.visit` raises a :class:`~pai.syntax.SyntaxError` when given a token stream that
-    does not have a sufficient number of items to create a root :class:`~pai.syntax.Node` node.
+    Assert that :func:`~pai_lang.visitor.visit` raises a :class:`~pai_lang.syntax.SyntaxError` when given a token stream that
+    does not have a sufficient number of items to create a root :class:`~pai_lang.syntax.Node` node.
     """
     root = visitor.visit(*valid_visit_root_node_params, parent=None)
     with pytest.raises(syntax.SyntaxError):
@@ -188,8 +188,8 @@ def test_visit_raises_syntax_error_on_missing_tokens_for_child_node(valid_visit_
 
 def test_visit_returns_none_root_node_on_empty_tokens_iterable(empty_tokens_visit_params):
     """
-    Assert that :func:`~pai.visitor.visit` returns `None` when given an empty token iterable instead of a root
-    :class:`~pai.syntax.Node` node.
+    Assert that :func:`~pai_lang.visitor.visit` returns `None` when given an empty token iterable instead of a root
+    :class:`~pai_lang.syntax.Node` node.
     """
     assert visitor.visit(*empty_tokens_visit_params, parent=None) is None
 
@@ -197,8 +197,8 @@ def test_visit_returns_none_root_node_on_empty_tokens_iterable(empty_tokens_visi
 def test_visit_returns_none_child_node_on_empty_tokens_iterable(valid_visit_root_node_params,
                                                                 empty_tokens_visit_params):
     """
-    Assert that :func:`~pai.visitor.visit` returns `None` when given an empty token iterable instead of a root
-    :class:`~pai.syntax.Node` node.
+    Assert that :func:`~pai_lang.visitor.visit` returns `None` when given an empty token iterable instead of a root
+    :class:`~pai_lang.syntax.Node` node.
     """
     root = visitor.visit(*valid_visit_root_node_params, parent=None)
     assert visitor.visit(*empty_tokens_visit_params, parent=root) is None

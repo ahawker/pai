@@ -1,5 +1,5 @@
 [run]
-source = pai
+source = pai_lang
 branch = true
 omit = tests/*
 

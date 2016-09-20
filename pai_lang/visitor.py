@@ -1,12 +1,12 @@
 """
-    pai.visitor
-    ~~~~~~~~~~~
+    pai_lang.visitor
+    ~~~~~~~~~~~~~~~~
 
     Module that implements the "visitor" interface defined by :mod:`~paip.parser` to implement and enforce our
     language syntax.
 """
 
-from pai import syntax
+from pai_lang import syntax
 from paip import slicer
 
 
@@ -34,13 +34,13 @@ def supports(group_size, rtl, expected_group_size=syntax.GROUP_SIZE, expected_rt
 
 def visit(tokens, group_size, rtl, parent=None):
     """
-    Consume values from given token iterable to create a :class:`~pai.syntax.Node` instance.
+    Consume values from given token iterable to create a :class:`~pai_lang.syntax.Node` instance.
 
     :param tokens: Iterable that yields tokens to be consumed
     :param group_size: Size of each group of tokens in iterable
     :param rtl: Flag indicating if token groups are being returned right-to-left
-    :param parent: A :class:`~pai.syntax.Node` instance that was created in previous visit step over this token iterable
-    :return: A :class:`~pai.syntax.Node` instance
+    :param parent: A :class:`~pai_lang.syntax.Node` instance that was created in previous visit step over this iterable
+    :return: A :class:`~pai_lang.syntax.Node` instance
     """
     if not parent:
         return visit_root(tokens)
@@ -50,11 +50,11 @@ def visit(tokens, group_size, rtl, parent=None):
 
 def visit_root(tokens, n=syntax.ROOT_NODE_SIZE):
     """
-    Consume values from the given token iterable to create a "root" :class:`~pai.syntax.Node` instance.
+    Consume values from the given token iterable to create a "root" :class:`~pai_lang.syntax.Node` instance.
 
     :param tokens: Iterable that yields tokens to be consumed
     :param n: Number of tokens to consume from iterable in order to create a "root" node
-    :return: A "root" :class:`~pai.syntax.Node` instance created from :func:`~pai.syntax.root`
+    :return: A "root" :class:`~pai_lang.syntax.Node` instance created from :func:`~pai_lang.syntax.root`
     """
     node = visit_node(tokens, n)
     if not node:
@@ -64,12 +64,12 @@ def visit_root(tokens, n=syntax.ROOT_NODE_SIZE):
 
 def visit_child(tokens, parent, n=syntax.CHILD_NODE_SIZE):
     """
-    Consume values from the given token iterable to create a "child" :class:`~pai.syntax.Node` instance.
+    Consume values from the given token iterable to create a "child" :class:`~pai_lang.syntax.Node` instance.
 
     :param tokens: Iterable that yields tokens to be consumed
-    :param parent: A :class:`~pai.syntax.Node` instance that was created in previous visit step for this token iterable
+    :param parent: A :class:`~pai_lang.syntax.Node` instance that was created in previous visit step for this iterable
     :param n: Number of tokens to consume from iterable in order to create a "child" node
-    :return: A "child" :class:`~pai.syntax.Node` instance created from :func:`~pai.syntax.child`
+    :return: A "child" :class:`~pai_lang.syntax.Node` instance created from :func:`~pai_lang.syntax.child`
     """
     node = visit_node(tokens, n)
     if not node:
@@ -79,9 +79,9 @@ def visit_child(tokens, parent, n=syntax.CHILD_NODE_SIZE):
 
 def visit_node(tokens, n):
     """
-    Consume `n` values from the given token iterable that will be used to create a :class:`~pai.syntax.Node` instance.
+    Consume `n` values from the given iterable that will be used to create a :class:`~pai_lang.syntax.Node` instance.
 
-    Raises a :class:`~pai.syntax.SyntaxError` when the token iterable contains less than `n` number of items.
+    Raises a :class:`~pai_lang.syntax.SyntaxError` when the token iterable contains less than `n` number of items.
 
     :param tokens: Iterable that yields tokens to be consumed
     :param n: Number of tokens to consume from iterable in order to create the node

@@ -1,6 +1,6 @@
-# pai/requirements/test.txt
+# pai_lang/requirements/test.txt
 #
-# Requirements for executing the pai test suite.
+# Requirements for executing the pai_lang test suite.
 
 -r base.txt
 

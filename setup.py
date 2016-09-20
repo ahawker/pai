@@ -1,6 +1,6 @@
 """
-    pai
-    ~~~
+    pai_lang
+    ~~~~~~~~
 
     Language for describing resources/relations as shell-safe strings.
 """
@@ -18,20 +18,20 @@ version_regex = re.compile(r'__version__\s+=\s+(.*)')
 
 
 def get_version():
-    with open('pai/__init__.py', 'r') as f:
+    with open('pai_lang/__init__.py', 'r') as f:
         return str(ast.literal_eval(version_regex.search(f.read()).group(1)))
 
 
 setup(
-    name='pai',
+    name='pai_lang',
     version=get_version(),
     author='Andrew Hawker',
     author_email='andrew.r.hawker@gmail.com',
-    url='https://github.com/ahawker/pai',
+    url='https://github.com/ahawker/pai_lang',
     license='Apache 2.0',
     description='Language for describing resources/relations as shell-safe strings.',
     long_description=__doc__,
-    packages=['pai'],
+    packages=['pai_lang'],
     include_package_data=True,
     platforms='any',
     classifiers=[

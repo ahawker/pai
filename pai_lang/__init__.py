@@ -1,6 +1,6 @@
 """
-    pai
-    ~~~
+    pai_lang
+    ~~~~~~~~
 
     Language for describing resources/relations as shell-safe strings.
 
