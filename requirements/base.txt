@@ -1,5 +1,5 @@
-# pai/requirements/base.txt
+# pai_lang/requirements/base.txt
 #
-# Requirements for using the pai package.
+# Requirements for using the pai_lang package.
 
 paip

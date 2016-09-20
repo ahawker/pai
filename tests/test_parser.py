@@ -2,12 +2,12 @@
     test_parser
     ~~~~~~~~~~~
 
-    Tests for the :mod:`~pai.parser` module.
+    Tests for the :mod:`~pai_lang.parser` module.
 """
 
 import pytest
 
-from pai import parser
+from pai_lang import parser
 
 
 @pytest.fixture(scope='function')
@@ -85,7 +85,7 @@ def root_and_two_child_nodes_token_stream(request, root_and_child_node_token_str
 
 def test_parse_returns_one_root_node_per_syntax(root_node_only_token_stream):
     """
-    Assert that :func:`~pai.parser.parse` returns a single root node per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse` returns a single root node per :mod:`~pai_lang.syntax` specification.
     """
     nodes = parser.parse(root_node_only_token_stream)
     assert len(nodes) == 1
@@ -94,7 +94,7 @@ def test_parse_returns_one_root_node_per_syntax(root_node_only_token_stream):
 
 def test_parse_gen_yields_one_root_node_per_syntax(root_node_only_token_stream):
     """
-    Assert that :func:`~pai.parser.parse` yields a single root node per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse` yields a single root node per :mod:`~pai_lang.syntax` specification.
     """
     nodes = list(parser.parse_gen(root_node_only_token_stream))
     assert len(nodes) == 1
@@ -103,7 +103,7 @@ def test_parse_gen_yields_one_root_node_per_syntax(root_node_only_token_stream):
 
 def test_parse_returns_root_and_child_node_per_syntax(root_and_child_node_token_stream):
     """
-    Assert that :func:`~pai.parser.parse` returns a root and child node per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse` returns a root and child node per :mod:`~pai_lang.syntax` specification.
     """
     nodes = parser.parse(root_and_child_node_token_stream)
     assert len(nodes) == 2
@@ -113,7 +113,8 @@ def test_parse_returns_root_and_child_node_per_syntax(root_and_child_node_token_
 
 def test_parse_gen_yields_root_and_child_node_per_syntax(root_and_child_node_token_stream):
     """
-    Assert that :func:`~pai.parser.parse_gen` returns a root and child node per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse_gen` returns a root and child node per :mod:`~pai_lang.syntax`
+    specification.
     """
     nodes = list(parser.parse_gen(root_and_child_node_token_stream))
     assert len(nodes) == 2
@@ -123,7 +124,8 @@ def test_parse_gen_yields_root_and_child_node_per_syntax(root_and_child_node_tok
 
 def test_parse_returns_root_and_two_child_nodes_per_syntax(root_and_two_child_nodes_token_stream):
     """
-    Assert that :func:`~pai.parser.parse` returns a root and two child nodes per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse` returns a root and two child nodes per :mod:`~pai_lang.syntax`
+    specification.
     """
     nodes = parser.parse(root_and_two_child_nodes_token_stream)
     assert len(nodes) == 3
@@ -134,7 +136,8 @@ def test_parse_returns_root_and_two_child_nodes_per_syntax(root_and_two_child_no
 
 def test_parse_gen_yields_root_and_two_child_nodes_per_syntax(root_and_two_child_nodes_token_stream):
     """
-    Assert that :func:`~pai.parser.parse_gen` returns a root and two child nodes per :mod:`~pai.syntax` specification.
+    Assert that :func:`~pai_lang.parser.parse_gen` returns a root and two child nodes per :mod:`~pai_lang.syntax`
+    specification.
     """
     nodes = list(parser.parse_gen(root_and_two_child_nodes_token_stream))
     assert len(nodes) == 3

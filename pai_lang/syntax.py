@@ -1,6 +1,6 @@
 """
-    pai.syntax
-    ~~~~~~~~~~
+    pai_lang.syntax
+    ~~~~~~~~~~~~~~~
 
     Module that defines the object representation of the language.
 """
@@ -74,7 +74,7 @@ class Node:
         """
         Links this node as a "child" node of the given parent.
 
-        :param parent: A :class:`~pai.syntax.Node` instance that will become the parent of this node
+        :param parent: A :class:`~pai_lang.syntax.Node` instance that will become the parent of this node
         :return: `None`
         """
         self.link_parent(parent)
@@ -84,7 +84,7 @@ class Node:
         """
         Links the given node as the parent of this node.
 
-        :param parent: A :class:`~pai.syntax.Node` instance that will become the parent of this node
+        :param parent: A :class:`~pai_lang.syntax.Node` instance that will become the parent of this node
         :return: `None`
         """
         if parent:
@@ -94,7 +94,7 @@ class Node:
         """
         Links the given node as the child of this node.
 
-        :param child: A :class:`~pai.syntax.Node` instance that will become the child of this node
+        :param child: A :class:`~pai_lang.syntax.Node` instance that will become the child of this node
         :return: `None`
         """
         if child:
@@ -108,7 +108,7 @@ def root(node, edge, property):
     :param node: The entity/resource this root node represents
     :param edge: The relationship between this root node and its property
     :param property: The piece of information that describes the entity/resource
-    :return: A :class:`~pai.syntax.Node` instance that is a root node
+    :return: A :class:`~pai_lang.syntax.Node` instance that is a root node
     """
     return Node(node, edge, property, ROOT_SENTINEL)
 
@@ -119,8 +119,8 @@ def child(node, edge, parent):
 
     :param node: The entity/resource this root node represents
     :param edge: The relationship between this root node and its parent
-    :param parent: A :class:`~pai.syntax.Node` instance that is the parent of this child node
-    :return: A :class:`~pai.syntax.Node` instance that is a child node
+    :param parent: A :class:`~pai_lang.syntax.Node` instance that is the parent of this child node
+    :return: A :class:`~pai_lang.syntax.Node` instance that is a child node
     """
     node = Node(node, edge)
     node.link(parent)

@@ -1,11 +1,11 @@
 """
-    pai.parser
-    ~~~~~~~~~~
+    pai_lang.parser
+    ~~~~~~~~~~~~~~~
 
     Module for parsing shell-safe strings based on the language as defined by :mod:`~pai.syntax`.
 """
 
-from pai import syntax, visitor
+from pai_lang import syntax, visitor
 from paip import parser
 
 

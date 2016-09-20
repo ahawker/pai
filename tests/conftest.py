@@ -15,7 +15,7 @@ import pytest
 ])
 def fake_root_node_input(request):
     """
-    Fixture that yields three item tuples containing fake input to create a root :class:`~pai.syntax.Node` node.
+    Fixture that yields three item tuples containing fake input to create a root :class:`~pai_lang.syntax.Node` node.
     """
     return request.param
 
@@ -27,6 +27,6 @@ def fake_root_node_input(request):
 ])
 def fake_child_node_input(request):
     """
-    Fixture that yields two item tuples containing fake input to create a child :class:`~pai.syntax.Node` node.
+    Fixture that yields two item tuples containing fake input to create a child :class:`~pai_lang.syntax.Node` node.
     """
     return request.param

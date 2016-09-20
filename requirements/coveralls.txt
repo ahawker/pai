@@ -1,4 +1,4 @@
-# pai/requirements/coveralls.txt
+# pai_lang/requirements/coveralls.txt
 #
 # Requirements for uploading code coverage to coveralls.io.
 
