@@ -1,5 +1,8 @@
 # pai-lang
 
+[![Build Status](https://travis-ci.org/ahawker/pai-lang.svg?branch=master)](https://travis-ci.org/ahawker/pai-lang)
+[![Coverage Status](https://coveralls.io/repos/github/ahawker/pai-lang/badge.svg?branch=master)](https://coveralls.io/github/ahawker/pai-lang?branch=master)
+
 Language for describing resources/relations as shell-safe strings.
 
 ### Status
@@ -9,6 +12,7 @@ Language for describing resources/relations as shell-safe strings.
 ### Installation
 
 Install `pai-lang` using [pip](https://pypi.python.org/pypi/pip):
+
 ```bash
     $ pip install pai_lang
 ```
