@@ -1,0 +1,13 @@
+# https://travis-ci.org/ahawker/pai_lang
+
+sudo: false
+language: python
+
+python:
+  - "3.3"
+  - "3.4"
+  - "3.5"
+
+install: "make travis-install"
+script: "make travis-script"
+after_success: "coveralls"

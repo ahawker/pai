@@ -12,6 +12,9 @@ tox-install:
 tox: tox-install
 	tox
 
+coveralls-install:
+	pip install -q -r requirements/coveralls.txt
+
 travis-install: coveralls-install
 	pip install -q -r requirements/travis.txt
 	pip install -q -r requirements/coveralls.txt
