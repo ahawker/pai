@@ -74,7 +74,7 @@ def visit_child(tokens, parent, n=syntax.CHILD_NODE_SIZE):
     node = visit_node(tokens, n)
     if not node:
         return None
-    return syntax.child(*node, parent)
+    return syntax.child(*node, parent=parent)
 
 
 def visit_node(tokens, n):
