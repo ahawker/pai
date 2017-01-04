@@ -23,11 +23,11 @@ def get_version():
 
 
 setup(
-    name='pai_lang',
+    name='pai-lang',
     version=get_version(),
     author='Andrew Hawker',
     author_email='andrew.r.hawker@gmail.com',
-    url='https://github.com/ahawker/pai_lang',
+    url='https://github.com/ahawker/pai-lang',
     license='Apache 2.0',
     description='Language for describing resources/relations as shell-safe strings.',
     long_description=__doc__,
@@ -38,7 +38,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
-        'License :: OSI Approved :: Apache 2.0 License',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
