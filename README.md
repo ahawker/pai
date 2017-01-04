@@ -24,7 +24,7 @@ Install `pai-lang` using [pip](https://pypi.python.org/pypi/pip):
 
 Install `pai-lang` from source:
 ```bash
-    $ git clone git@github.com:ahawker/pai_lang.git
+    $ git clone git@github.com:ahawker/pai-lang.git
     $ cd pai_lang
     $ python setup.py install
 ```
