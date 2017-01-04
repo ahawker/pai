@@ -26,6 +26,34 @@ Install `pai-lang` from source:
     $ python setup.py install
 ```
 
+### Deployment
+
+Package deployments to index servers are automatically performed by [Travis CI](https://travis-ci.org/).
+
+[PyPI](https://pypi.python.org/pypi/pai-lang) - Hosts **Official** Builds
+
+[TestPyPI](https://testpypi.python.org/pypi/pai-lang) - Hosts **Development** Builds
+
+Tagged versions of the `master` branch will be deployed to the official PyPI index server while non-tagged versions will be deployed
+to the test PyPI index server.
+
+To kick off a new, official deployment, just run one of the following:
+
+**Patch** Version Release: Use this when you make backwards-compatible bug fixes.
+```bash
+    $ make push-patch
+```
+
+**Minor** Version Release: Use this when you add functionality in a backwards-compatible manner.
+```bash
+    $ make push-minor
+```
+
+**Major** Version Release: Use this when you make incompatible API changes.
+```bash
+    $ make push-major
+```
+
 ### Usage
 
 `pai-lang` does not enforce any constraints on the `node`, `relation`, and `property` values.
