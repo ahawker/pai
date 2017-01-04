@@ -26,3 +26,20 @@ clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
+
+bump-patch:
+	bumpversion patch
+
+bump-minor:
+	bumpversion minor
+
+bump-major:
+	bumpversion major
+
+git-push-with-tags:
+	git push
+	git push --tags
+
+push-patch: bump-patch git-push-with-tags
+push-minor: bump-minor git-push-with-tags
+push-major: bump-major git-push-with-tags

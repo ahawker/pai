@@ -2,4 +2,5 @@
 #
 # Requirements for using the pai_lang package.
 
+bumpversion
 pai_parser
