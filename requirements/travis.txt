@@ -1,4 +1,4 @@
-# pai_lang/requirements/travis.txt
+# pai-lang/requirements/travis.txt
 #
 # Requirements for executing the pai_lang test suite on Travis CI.
 

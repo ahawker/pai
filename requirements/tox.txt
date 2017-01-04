@@ -1,4 +1,4 @@
-# pai_lang/requirements/tox.txt
+# pai-lang/requirements/tox.txt
 #
 # Requirements for executing the pai_lang test suite using tox.
 
