@@ -21,7 +21,7 @@ codeclimate-install:
 travis-install: coveralls-install codeclimate-install
 	pip install -q -r requirements/travis.txt
 
-travis: travis-install tox
+travis-script: travis-install tox
 
 clean-pyc:
 	find . -name '__pycache__' -type d -exec rm -r {} +
