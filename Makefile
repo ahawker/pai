@@ -15,9 +15,11 @@ tox: tox-install
 coveralls-install:
 	pip install -q -r requirements/coveralls.txt
 
-travis-install: coveralls-install
+codeclimate-install:
+	pip install -q -r requirements/codeclimate.txt
+
+travis-install: coveralls-install codeclimate-install
 	pip install -q -r requirements/travis.txt
-	pip install -q -r requirements/coveralls.txt
 
 travis: travis-install tox
 
