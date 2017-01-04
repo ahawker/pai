@@ -7,7 +7,7 @@
 """
 
 from pai_lang import syntax
-from paip import slicer
+from pai_parser import slicer
 
 
 __all__ = ['supports', 'visit']

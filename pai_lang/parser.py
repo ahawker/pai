@@ -6,7 +6,7 @@
 """
 
 from pai_lang import syntax, visitor
-from paip import parser
+from pai_parser import parser
 
 
 __all__ = ['parse', 'parse_gen']
