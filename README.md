@@ -1,5 +1,6 @@
 # pai-lang
 
+[![PyPI version](https://badge.fury.io/py/pai-lang.svg)](https://badge.fury.io/py/pai-lang)
 [![Build Status](https://travis-ci.org/ahawker/pai-lang.svg?branch=master)](https://travis-ci.org/ahawker/pai-lang)
 [![Coverage Status](https://coveralls.io/repos/github/ahawker/pai-lang/badge.svg?branch=master)](https://coveralls.io/github/ahawker/pai-lang?branch=master)
 [![Code Climate](https://codeclimate.com/github/ahawker/pai-lang/badges/gpa.svg)](https://codeclimate.com/github/ahawker/pai-lang)
